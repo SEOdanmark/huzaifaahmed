@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Tree Pruning</title>
+<meta name="title" content="Tree Pruning">
+<meta name="dc.title" content="Tree Pruning">
+<meta name="description" content="Tree prun(ing) is an essential part of any gardener's maintenance routine. It helps keep trees healthy and looking their best by removing dead or diseased branches, as well as controlling the size and shape. Done correctly, it can even improve a tree’s appearance and structure!">
+<meta name="keywords" content="Tree Pruning,Tree Pruning">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="index.html">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Kumbh+Sans:100,200,300,400,500,600,700,800,900&amp;display=swap">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="img/" alt="Tree Pruning" />
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+<style type="text/css"> 
+.vb75b47627b92b43341ea2084d1154756 *{
+color:#000000!important;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .ze08a6e5122c1f15ae2b283b8d6d34e25{
+margin-bottom: 1.5rem;
+}
+.navbar-toggler span{
+display: flex;
+align-items: center;
+justify-content: center;
+border: 1px solid lightgrey;
+border-radius: 3px;
+}
+.tff1fe882ba12e49030a3bf8e6d218f6c{
+text-decoration: underline!important;color:#ff8319!important
+}
+.ufafd5e9dd5f588ca117fa478a6f2f7fc{
+font-size:16px!important;
+color: #686868;
+}
+.btn-md{
+padding: 14.5px 30.2px;
+border-radius: 0;
+}
+.f19df63b3360aa984d84223b6c9d82c59 .card .card-body p:last-child{
+margin-bottom: 0;
+}
+.ca0dffa86d87a01c49933a5a53f40b551:hover{
+box-shadow: 0 50.3px 49.7px -25px rgb(0 0 0 / 30%);
+transform: rotate(-2deg) scale(1.03);
+}
+.f8a1f4594a581ddc263448d9392e86633 a,.vb75b47627b92b43341ea2084d1154756 a{
+color:#040404!important;
+text-decoration: underline !important;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .y32a9bfba1f7773c6481125de1c626501 *{
+color:#000000;
+}
+.y8559c1be6edc7b4ac3c4d76554fd8bec{
+font-weight: inherit;
+background-image: linear-gradient(120deg, #ffd96b 0%, #ffd466 100%);
+background-repeat: no-repeat;
+background-size: 100% 30%;
+background-position: 0 90%;
+transition: background-size 0.2s ease-in;
+}
+html{
+scroll-behavior: smooth;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .x22d6f83c9edc7208146df0012222dbf7 *{
+color:#000000;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .y32a9bfba1f7773c6481125de1c626501{
+background:#eae8e4!important ;
+}
+ul{
+list-style: circle;
+}
+.y327795a6387e3747555db60a340c2bff *{
+color: white !important;
+}
+.vb75b47627b92b43341ea2084d1154756{
+background:#ffffff;
+}
+.td599bf9b24791975fa3c2008d92f0210{
+font-size: 20.2px;
+font-weight: bold;
+}
+.vb75b47627b92b43341ea2084d1154756 a{
+font-size:16px;
+}
+.vb75b47627b92b43341ea2084d1154756 p,.vb75b47627b92b43341ea2084d1154756 span,.vb75b47627b92b43341ea2084d1154756 label{
+font-size:16px!important;
+}
+.y327795a6387e3747555db60a340c2bff{
+background: rgba(0, 0, 0, 0.6);
+text-align: center;
+}
+.navbar a{
+font-size: 17.8px!important;
+font-weight: bold;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .x22d6f83c9edc7208146df0012222dbf7{
+background:#bcd9df!important;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .uf7538283e5a26199c77d6595009f749f{
+background:#c1bebe!important;
+}
+.y837d4cf6a34298c4bde3929563fb371d{
+background-color: #040404;
+font-size: 30.3px;
+height: 56.5px;
+min-width: 56.3px;
+padding: 0.7rem;
+padding-top: 12.7px;
+color: #fff !important;
+border: 1px solid #010101;
+border-radius: 50%;
+}
+.b9f729469f998c0e614e8badcab314234{
+position: relative;
+z-index: 1;
+}
+.dropdown-menu{
+top:79%;
+max-width: 800px;
+overflow-x: auto;
+}
+*{
+font-family: 'Kumbh Sans', sans-serif;
+}
+.xe0cacca9c0d6644447f09bf29c43c011{
+font-size: 2rem !important;
+}
+.c5e7e6400b714365a7ae36e40949a6051{
+font-size: 14.1px;
+}
+footer *{
+font-size:16px !important;
+}
+.nav-link{
+color: #000000!important;
+
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e h4{
+font-size:24px!important;
+}
+.x22d6f83c9edc7208146df0012222dbf7{
+background:#eae8e4!important ;
+}
+.yaf4efd465fdc9a28b8c1ba0ef6277d4a{
+color: #a0a0a0;
+font-size: 20.5px;
+margin-bottom: 20.9px;
+}
+.a48ac6d842125dd632a942fdb3e0e007b i:hover{
+background: white;
+color: #ffd016;
+border-radius: 50%;
+width: 36.5px;
+text-align: center;
+height: 36.6px;
+}
+.nav-item{
+padding-left:8.4px;
+padding-right:7.8px;
+padding-top:4.7px;
+padding-bottom:4.7px;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .row-item.x5601248c95627a0218e960c961e50ceb{
+background: #f5e2e0;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .row-item{
+padding: 3rem;
+padding-top: 3.7rem;
+height: 100%;
+}
+.f19df63b3360aa984d84223b6c9d82c59 .card .card-header{
+background-color: #ffffff;
+padding: 0;
+border-bottom-color: #f6f6f6;
+}
+.y1767ec4f5b40c21514fc50d45e940f63{
+max-height: 300px;
+overflow-y: auto;
+}
+.f8a1f4594a581ddc263448d9392e86633{
+background:#f4f2ee;
+color:#040404;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .row-item.x22d6f83c9edc7208146df0012222dbf7{
+background: #cfecf2;
+}
+.a48ac6d842125dd632a942fdb3e0e007b i{
+border-radius: 50%;
+width: 36.9px;
+text-align: center;
+height: 36.8px;
+}
+.dbaf189d2a5ed22e84383944f91c4fa79{
+width: 100%;
+max-height: 720px;
+object-fit: cover;
+object-position: center;
+display: block;
+max-height: 100%;
+max-width: 100%;
+margin: auto;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .x5601248c95627a0218e960c961e50ceb{
+background:#eddad8!important;
+}
+a{
+text-decoration: none;
+}
+.w8c1701f3620cd80a9aeae40ef6340bf4{
+position: relative;
+min-height: 30px
+}
+.y32a9bfba1f7773c6481125de1c626501 a{
+color:#ff9026!important;
+}
+iframe{
+border: none!important;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .card-img{
+margin-bottom: 1.7rem;
+text-align: left;
+}
+.x5601248c95627a0218e960c961e50ceb a{
+color:#ff8319!important;
+}
+.f19df63b3360aa984d84223b6c9d82c59 .card .card-header h6.collapsed span{
+-webkit-transform: rotate(-180deg);
+transform: rotate(-180deg);
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .row-item.uf7538283e5a26199c77d6595009f749f{
+background: #c2bfbf;
+}
+.uf7538283e5a26199c77d6595009f749f a{
+color:#ff8a20!important;
+}
+.ca0dffa86d87a01c49933a5a53f40b551{
+transition: all 0.3s;
+border-radius: 30px;
+}
+.y32a9bfba1f7773c6481125de1c626501 *{
+color:#000000;
+}
+.f19df63b3360aa984d84223b6c9d82c59 .card .card-header h6{
+cursor: pointer;
+padding: 1.75rem 2rem;
+color: #3f43fd;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-align: center;
+-ms-flex-align: center;
+-ms-grid-row-align: center;
+align-items: center;
+-webkit-box-pack: justify;
+-ms-flex-pack: justify;
+justify-content: space-between;
+}
+body{
+color: #252525;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e p,.{special_content1_class} a,.z130b5b8e7dd3195a792b4a00a5c9d21e label{
+font-size:16px!important;
+}
+.f19df63b3360aa984d84223b6c9d82c59 .card{
+position: relative;
+z-index: 1;
+margin-bottom: 1.5rem;
+}
+.f19df63b3360aa984d84223b6c9d82c59{
+position: relative;
+z-index: 1;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .row-item.y32a9bfba1f7773c6481125de1c626501{
+background: #eceae6;
+}
+.f19df63b3360aa984d84223b6c9d82c59 .card .card-header h6 span{
+font-size: 1.5rem;
+}
+.f8a1f4594a581ddc263448d9392e86633 p,.f8a1f4594a581ddc263448d9392e86633 a,.f8a1f4594a581ddc263448d9392e86633 span,.f8a1f4594a581ddc263448d9392e86633 label{
+font-size:16px!important;
+}
+.f19df63b3360aa984d84223b6c9d82c59 .card .card-body{
+padding: 1.75rem 2rem;
+}
+.y76a7688b383407bfb33ed76174076392{
+color: #535353;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .x5601248c95627a0218e960c961e50ceb *{
+color:#000000;
+}
+.w11633ce332fbadf904ee0ea448f612df:hover,.y8559c1be6edc7b4ac3c4d76554fd8bec:hover{
+background-size: 100% 100% !important;
+background-image: linear-gradient(120deg,  0%,  100%) !important;
+background-repeat: no-repeat !important;
+background-position: 0 90% !important;
+transition: background-size 0.2s ease-in !important;
+}
+.yd24577028ad4972912b458e1e6d47c54{
+font-size:45px!important;
+}
+.z130b5b8e7dd3195a792b4a00a5c9d21e .uf7538283e5a26199c77d6595009f749f *{
+color:#000000;
+}
+.vc47c3691ee46ab58a51b941a5f98ba77{
+font-size: 45px!important;
+}
+.f19df63b3360aa984d84223b6c9d82c59 .card:last-child{
+margin-bottom: 0;
+}
+footer{
+background:#0b0b0b;
+color:#ffffff;
+}
+footer a{
+color:#ffffff;
+text-decoration: underline;
+}
+.x22d6f83c9edc7208146df0012222dbf7 a{
+color:#ff8319!important;
+}
+.x321ff124436b91147952a00fb6c5cae4{
+background-color:#ffc107!important;
+border-color:#ffc107!important;
+color:#000000!important;
+}
+.f19df63b3360aa984d84223b6c9d82c59 .card .card-header h6.collapsed{
+color: #0f125f;
+}
+ 
+@media only screen and (max-width:1000px) {
+.w8c1701f3620cd80a9aeae40ef6340bf4 {
+min-height: 0px !important;
+}
+.yd24577028ad4972912b458e1e6d47c54 {
+font-size: 20px;
+}
+.yaf4efd465fdc9a28b8c1ba0ef6277d4a {
+font-size: 15px !important;
+}
+.wb94524bd21acabe067c31c707cb49dd7{
+padding-bottom: 0px !important;
+}
+} 
+</style>
+<script type='application/ld+json'> 
+{
+"@context": "http://www.schema.org",
+"@type": "ProfessionalService","url": "",
+"address": {
+"@type": "PostalAddress"} }
+</script>
+<script type="application/ld+json">
+{
+"@type": "WebPage",
+"@context": "http://www.schema.org","lastReviewed": "2021-12-01",
+"mainContentOfPage": {
+"about": {"url": "index.html","name": "Tree Pruning","description": "Tree Pruning",
+"disambiguatingDescription": "Tree Pruning"},
+"accessibilitySummary": "Tree Pruning"},
+"keywords": ["Tree Pruning"],
+"award": ["Best Tree Pruning"],
+"teaches": ["Tree Pruning"],
+"educationalUse": ["Tree Pruning"],
+"text": "Tree Pruning",
+"workExample": {
+"about": {"url": "index.html"
+}
+},
+"citation": {
+"@type": "CreativeWork",
+"about": {
+"url": "index.html"}
+},
+"hasPart":[
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"description":"In this section we will answer the most common questions to Tree Pruning",
+"alternativeHeadline": "The most frequently asked questions about Tree Pruning",
+"url": "index.html",
+"mainEntity": [{
+"@type": "Question","name": "What type of tree pruning services do you offer?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "We offer a variety of professional tree pruning services, including deadwood removal, crown thinning, crown lifting and hedge trimming."
+}
+},{
+"@type": "Question","name": "How often should I have my trees pruned?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "The frequency of tree pruning varies depending on the species and size of the tree but generally should be done every 3-5 years."
+}
+},{
+"@type": "Question","name": "What safety measures do you take when performing tree pruning?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "We use specialized equipment and follow all safety protocols to ensure a safe work environment for both our staff and clients."
+}
+}]
+}]
+}
+</script><script type="application/ld+json">
+{
+"@context": "http://schema.org/",
+"@type": "Product",
+"name": "Tree Pruning",
+"aggregateRating": {
+"@type": "AggregateRating",
+"ratingValue": "5","ratingCount": "3",
+"reviewCount": "3"
+}
+}
+</script></head>
+<body>
+<nav class="navbar navbar-expand-lg">
+<a class="navbar-brand" href="index.html"  ></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon  fa fa-bars"></span></button><div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="align-items-center d-flex navbar-nav ml-auto"><li class="nav-item"><a class="nav-link w11633ce332fbadf904ee0ea448f612df" href="news.html" rel="nofollow" >News</a></li>
+	
+<li class="nav-item dropdown ">
+<a class="nav-link w11633ce332fbadf904ee0ea448f612df dropdown-toggle" href="index.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Tree Pruning</a>
+<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="index.html"  >Tree Pruning</a>
+<a class="dropdown-item" href="tree-pruning.html"  >Tree Pruning</a>
+<a class="dropdown-item" href="tree-removal.html"  >Tree Removal</a>
+<a class="dropdown-item" href="stump-grinding.html"  >Stump Grinding</a>
+<a class="dropdown-item" href="emergency-services.html"  >Emergency Services</a>
+<a class="dropdown-item" href="planting-and-transplanting.html"  >Planting and Transplanting</a>
+	
+<li class="dropdown nav-item ">
+<a class="dropdown-toggle nav-link w11633ce332fbadf904ee0ea448f612df" href="tree-removal-1.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Tree Removal</a>
+<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="tree-removal-1.html"  >Tree Removal</a>
+<a class="dropdown-item" href="crown-reduction.html"  >Crown Reduction</a>
+<a class="dropdown-item" href="shaping-and-thinning.html"  >Shaping and Thinning</a>
+<a class="dropdown-item" href="deadwood-removal.html"  >Deadwood Removal</a>
+<a class="dropdown-item" href="cabling-and-bracing.html"  >Cabling and Bracing</a>
+<a class="dropdown-item" href="root-pruning.html"  >Root Pruning</a>
+	
+<li class="nav-item  dropdown">
+<a class="nav-link dropdown-toggle w11633ce332fbadf904ee0ea448f612df" href="stump-grinding-1.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Stump Grinding</a>
+<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="stump-grinding-1.html"  >Stump Grinding</a>
+<a class="dropdown-item" href="hazardous-tree-removal.html"  >Hazardous Tree Removal</a>
+<a class="dropdown-item" href="underground-utility-line-protection.html"  >Underground Utility Line Protection</a>
+<a class="dropdown-item" href="logging-operations.html"  >Logging Operations</a>
+<a class="dropdown-item" href="storm-damage-cleanup.html"  >Storm Damage Cleanup</a>
+<a class="dropdown-item" href="land-clearing-services.html"  >Land Clearing Services</a>
+	
+<li class=" nav-item dropdown">
+<a class="dropdown-toggle w11633ce332fbadf904ee0ea448f612df nav-link" href="emergency-services-1.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Emergency Services</a>
+<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="emergency-services-1.html"  >Emergency Services</a>
+<a class="dropdown-item" href="surface-root-removal.html"  >Surface Root Removal</a>
+<a class="dropdown-item" href="soil-preparation.html"  >Soil Preparation</a>
+<a class="dropdown-item" href="mulching-options.html"  >Mulching Options</a>
+<a class="dropdown-item" href="wood-chipper-services.html"  >Wood Chipper Services</a>
+<a class="dropdown-item" href="rock-grinding-services.html"  >Rock Grinding Services</a>
+	
+<li class="dropdown nav-item ">
+<a class="nav-link w11633ce332fbadf904ee0ea448f612df dropdown-toggle" href="planting-and-transplanting-1.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Planting and Transplanting</a>
+<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="planting-and-transplanting-1.html"  >Planting and Transplanting</a>
+<a class="dropdown-item" href="hazardous-situation-control.html"  >Hazardous Situation Control</a>
+<a class="dropdown-item" href="fallen-branch-or-limb-clearance.html"  >Fallen Branch or Limb Clearance</a>
+<a class="dropdown-item" href="power-lines-repairreplacement.html"  >Power Lines RepairReplacement</a>
+<a class="dropdown-item" href="lightning-strike-response.html"  >Lightning Strike Response</a>
+<a class="dropdown-item" href="wind-damage-remediation.html"  >Wind Damage Remediation</a>
+<li class="nav-item"><a class="nav-link w11633ce332fbadf904ee0ea448f612df" rel=nofollow href="about-us.html">About Us</a>
+</li></ul>
+</div>
+</nav>
+<div class="vb75b47627b92b43341ea2084d1154756 container-fluid"><div class="pb-5 row ">
+<div class="container pt-3">
+<div class="row">
+<div class="text-center col-lg-12 " id="Tree Pruning">
+<h1 class="text-dark mb-0 yd24577028ad4972912b458e1e6d47c54">Tree Pruning</h1> 
+<h2 class="yaf4efd465fdc9a28b8c1ba0ef6277d4a y76a7688b383407bfb33ed76174076392"><b>Tree Pruning</b></h2></div>
+<div class="m-auto  col-lg-12">
+<div class="content">
+
+Tree prun(ing) is an essential part of any gardener's maintenance routine. It helps keep trees healthy and looking their best by removing dead or diseased branches, as well as controlling the size and shape. Done correctly, it can even improve a tree’s appearance and structure!<br /> <br /> However, it's important to remember that tree pruning isn't always necessary. Over-pruning can actually be detrimental to a tree's health, so unless there are clear signs of disease or decay, it should usually be avoided. Additionally, pruning should never be done during the heat of summer – this could result in serious damage to the tree. <br /> <br /> Moreover, when planning a pruning project, it's vital to consider what type of species you're dealing with. Different species require different approaches; coniferous trees respond better to thinning whereas deciduous trees tend to need more structural shaping. Incorrectly pruned trees may become unbalanced and top-heavy which can lead to disastrous consequences such as breakage or uprooting in strong winds!<br /> <br /> Finally, although many people believe that they can perform the task themselves with basic tools, professional advice is often recommended for larger jobs or more complex situations. The experts have extensive training and experience in all aspects of tree care – plus they know exactly how much (or little!) needs to be done for each individual situation! So if you’re not sure where to start with your own project then it’s always advisable to get some professional help first! <br /> <br /> All in all, proper tree prun(ing) is essential for keeping your garden looking its best - but caution must be taken as incorrect techniques can cause lasting damage! With these simple tips in mind hopefully you'll now have enough knowledge to make an informed decision about your own tree pruning projects - just don't forget: safety first!!</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</div><div class="py-5 f8a1f4594a581ddc263448d9392e86633 b9f729469f998c0e614e8badcab314234">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-6">
+<div class="text-center pb-3">
+<h3> Frequently Asked Questions</h3>
+<div class="line"></div>
+</div>
+</div>
+</div>
+<div class="justify-content-center row">
+<div class="col-lg-8">
+<div class="accordion f19df63b3360aa984d84223b6c9d82c59" id="faqAccordion">
+<div class="border-0 card">
+<div class="card-header" id="heading0">
+<h6 class="collapsed mb-0" data-toggle="collapse" data-target="#collapse0" aria-expanded="true" aria-controls="collapse0"> What type of tree pruning services do you offer?<span class="lni-chevron-up"></span></h6>
+</div>
+<div class="collapse" id="collapse0" aria-labelledby="heading0" data-parent="#faqAccordion">
+<div class="card-body">We offer a variety of professional tree pruning services, including deadwood removal, crown thinning, crown lifting and hedge trimming.</div>
+</div>
+</div>
+<div class="border-0 card">
+<div class="card-header" id="heading1">
+<h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1"> How often should I have my trees pruned?<span class="lni-chevron-up"></span></h6>
+</div>
+<div class="collapse" id="collapse1" aria-labelledby="heading1" data-parent="#faqAccordion">
+<div class="card-body">The frequency of tree pruning varies depending on the species and size of the tree but generally should be done every 3-5 years.</div>
+</div>
+</div>
+<div class="card border-0">
+<div class="card-header" id="heading2">
+<h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2"> What safety measures do you take when performing tree pruning?<span class="lni-chevron-up"></span></h6>
+</div>
+<div class="collapse" id="collapse2" aria-labelledby="heading2" data-parent="#faqAccordion">
+<div class="card-body">We use specialized equipment and follow all safety protocols to ensure a safe work environment for both our staff and clients.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="pt-5 py-4 container" >
+<div class="row"><div class="col-lg-3"><p><a class="w11633ce332fbadf904ee0ea448f612df" href="sitemap.html" rel="nofollow">Sitemap</a></p>
+<p><a class="w11633ce332fbadf904ee0ea448f612df" href="privacy-policy.html" rel="nofollow">Privacy Policy</a></p>
+<p><a class="w11633ce332fbadf904ee0ea448f612df" href="about-us.html" rel="nofollow">About Us</a></p>
+</p>
+</div></div>
+</div>
+</footer>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+var dropdowns = document.querySelectorAll('.dropdown-hover');
+function showDropdown() {
+var dropdownMenu = this.querySelector('.dropdown-menu');
+dropdownMenu.style.display = 'block';
+}
+function hideDropdown() {
+var dropdownMenu = this.querySelector('.dropdown-menu');
+dropdownMenu.style.display = 'none';
+}
+function handleClick(event) {
+var target = event.target;
+window.location.href = target.getAttribute('href');
+}
+dropdowns.forEach(function(dropdown) {
+dropdown.addEventListener('mouseenter', showDropdown);
+dropdown.addEventListener('mouseleave', hideDropdown);
+var dropdownMenu = dropdown.querySelector('.dropdown-toggle');
+dropdownMenu.addEventListener('click', handleClick);
+});
+});
+</script>
+</body>
+</html>
